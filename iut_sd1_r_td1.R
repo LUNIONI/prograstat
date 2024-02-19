@@ -83,4 +83,113 @@ length(masequence)
 vecteur <- rep(3, times = 5)
 print(vecteur)
 
-vecteur<-
+vecteur <- rep(c('A', 'B', 'C'), times = 3)
+print(vecteur)
+
+vecteur <- rep(1:3, times = 3)
+print(vecteur)
+
+vecteur <- rep(c(TRUE, FALSE), times = 4)
+print(vecteur)
+
+rm(vecteur)
+
+#Exercice 3
+#Les fonctions runif(), mean(), median(), min(), max()
+vecteur <- runif(n = 5, min = 0, max = 1)
+vecteur
+mean(vecteur)
+median(vecteur)
+min(vecteur)
+max(vecteur)
+
+vecteur <- runif(n = 10, min = -5, max = 5)
+vecteur
+mean(vecteur)
+median(vecteur)
+min(vecteur)
+max(vecteur)
+
+vecteur <- runif(n = 100, min = 10, max = 20)
+vecteur
+mean(vecteur)
+median(vecteur)
+min(vecteur)
+max(vecteur)
+
+vecteur <- runif(n= 15, min = 50, max = 100)
+vecteur
+mean(vecteur)
+median(vecteur)
+min(vecteur)
+max(vecteur)
+
+#Les fonctions rnorm(), mean(), sd(), hist(), quantile()
+echantillon <- rnorm(n = 20, mean = -2, sd = 3)
+moyenne <- mean(echantillon)
+ecart_type <- sd(echantillon)
+print(paste("Moyenne : ", moyenne))
+print(paste("Écart-type : ", ecart_type))
+hist(echantillon)
+
+echantillon <- rnorm(n = 2000, mean = -2, sd = 3)
+moyenne <- mean(echantillon)
+ecart_type <- sd(echantillon)
+print(paste("Moyenne : ", moyenne))
+print(paste("Écart-type : ", ecart_type))
+hist(echantillon)
+
+echantillon <- rnorm(n = 2000, mean = 0, sd = 1)
+moyenne <- mean(echantillon)
+ecart_type <- sd(echantillon)
+print(paste("Moyenne : ", moyenne))
+print(paste("Écart-type : ", ecart_type))
+hist(echantillon)
+
+quantile(echantillon, probs = c(0.25))
+quantile(echantillon, probs = c(0.50))
+quantile(echantillon, probs = c(0.75))
+
+quantile(echantillon, probs = seq(0,1,0.1))
+
+quantile(echantillon, probs = seq(0,1,0.01))
+
+#Les fonctions sum(), round()
+echantillon <- rnorm(n = 3000, mean = 2400, sd = 300)
+moyenne <- mean(echantillon)
+ecart_type <- sd(echantillon)
+print(paste("Moyenne : ", moyenne))
+print(paste("Écart-type : ", ecart_type))
+
+echantillon <- round(echantillon, 2)
+
+masse_salariale <- sum(echantillon)
+print(paste("Masse salariale : ", masse_salariale))
+
+salaire_median <- median(echantillon)
+print(paste("Salaire médian : ", salaire_median))
+
+quantile(echantillon, probs = 0.99)
+
+quantile(echantillon, probs = 0.2)
+
+#Les fonctions sample(), table(), prop.table(), uique(),sort()
+sample(x = c(1,2,3,4,5,6), size = 1)
+
+simulation <- sample(x = c(1,2,3,4,5,6), size = 12, replace = TRUE)
+print(simulation)
+
+unique(simulation)
+
+table(simulation)
+
+prop.table( table(simulation) )
+print("Non, ce n'est pas le cas")
+
+simulation <- sample(x = c(1,2,3,4,5,6), size = 100000, replace = TRUE)
+print(simulation)
+
+simulation <- sample(x = c(1,2,3,4,5,6), size = 100000, replace = TRUE)
+frequence <- prop.table( table(simulation) )
+sort(frequence, decreasing = TRUE)
+print("Oui, d'après la loi des grands nombres, les probabilités d'obtenir chacune des faces se rapprochent des probabilités théoriques.")
